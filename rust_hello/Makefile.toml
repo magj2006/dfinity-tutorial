@@ -1,0 +1,27 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.build]
+command = "cargo"
+args = [
+    "build",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--package",
+    "rust_hello",
+    "--release",
+]
+
+[tasks.opt]
+command = "ic-cdk-optimizer"
+args = [
+    "/home/marshallm/Projects/exercise/rust_hello/target/wasm32-unknown-unknown/release/rust_hello.wasm",
+    "-o",
+    "/home/marshallm/Projects/exercise/rust_hello/target/wasm32-unknown-unknown/release/rust_hello-opt.wasm"
+]
+
+[tasks.build_and_opt]
+dependencies = [
+    "build",
+    "opt"
+]

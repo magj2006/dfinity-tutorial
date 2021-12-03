@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "rust_hello": {
+      "build": "cargo make build_and_opt",
+      "candid": "src/rust_hello/src/rust_hello.did",
+      "wasm": "target/wasm32-unknown-unknown/release/rust_hello-opt.wasm",
+      "type": "custom"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
